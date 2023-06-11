@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import org.idnp.jetpackpagingsample.adapters.CountryAdapter
 import org.idnp.jetpackpagingsample.adapters.UserAdapter
+import org.idnp.jetpackpagingsample.paging.CountryViewModel
 import org.idnp.jetpackpagingsample.paging.UserViewModel
 
 class MainActivity : AppCompatActivity() {
@@ -17,9 +19,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val viewModel by viewModels<UserViewModel>()
+        val viewModel by viewModels<CountryViewModel>()
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
-        val pagingAdapter = UserAdapter()
+        val pagingAdapter = CountryAdapter()
 
         recyclerView.adapter = pagingAdapter
         recyclerView.apply {
